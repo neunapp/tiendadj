@@ -1,5 +1,9 @@
 from .base import *
 # SECURITY WARNING: don't run with debug turned on in production!
+#
+import firebase_admin
+from firebase_admin import credentials, auth
+#
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -17,6 +21,11 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+# for Fire base Autentication
+cred = credentials.Certificate("fbkey.json")
+firebase_admin.initialize_app(cred)
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
